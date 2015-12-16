@@ -445,7 +445,109 @@ class Timer{
   <h1>Your Sketch4 Title</h1>
   <script type="text/processing" data-processing-target="mycanvas4">
   
-  <!-- Your sketch4 goes here -->
+PImage img;
+PImage img2;
+float x = 0;
+float move = 100;
+
+
+void setup(){
+ size(1200,800); 
+ background(255);
+ frameRate(1.5);
+ img =loadImage("https://cloud.githubusercontent.com/assets/15235901/11835364/87f0b572-a398-11e5-8d8b-6acea05c3c63.jpg");
+ for (int x=0; x<10; x++){
+ 
+ drawPendent();
+  draw();
+  while (x > 10){  //Couldn't get this to work properly
+   x = 0;
+   //noLoop();
+ 
+  }
+   strokeWeight(1);
+ drawPendent();
+ }
+}
+
+void drawPendent(){
+  image(img,0,0);
+   fill(#00FFF0);
+ textSize(20);
+ text("Click mouse on screen to change scene and clear notes",100,100);
+ strokeWeight(1); 
+ fill(#FFF098);
+beginShape();
+vertex(600,460);
+vertex(640,530);
+vertex(720,530);
+vertex(670,600);
+vertex(680,690);
+vertex(600,650);
+vertex(530,690);
+vertex(540,600);
+vertex(490,530);
+vertex(565,530);
+endShape(CLOSE);
+
+//noStroke();
+ellipse(602,495,100,80);
+fill(#F2F2F2);
+ellipse(602,585,100,100);
+fill(#FFF098);
+ellipse(602,585,85,85);
+fill(#F9FF67);
+ellipse(602,585,75,67);
+fill(#FFE5EF);
+ellipse(608,585,60,65);
+fill(#FF6AA3);
+ellipse(602,585,35,35);
+
+
+}
+
+void draw(){
+  int centerX = (round(random(0,width)));
+  int centerY = (round(random(0,height)));
+  int offset1 = 13;
+  int offset2 = 33;
+   fill(#9BE0FF);
+   noStroke();
+   rectMode(CENTER);
+   rect(centerX - offset1,centerY - offset2,10,50);
+   ellipse(centerX,centerY,40,20);
+   
+   x = x + 1;
+ fill(5);
+ ellipse(move,700,30,30); 
+}
+
+void mousePressed(){
+   background(255);
+ frameRate(1.5);
+ img =loadImage("https://cloud.githubusercontent.com/assets/15235901/11835365/89370cb0-a398-11e5-9382-def336e30dbf.jpg");
+    fill(#00FFF0);
+ textSize(20);
+ text("Click mouse on screen to clear notes",100,100);
+ for (int x=0; x<10; x++){
+ 
+ drawPendent();
+  draw();
+  while (x > 10){  //Couldn't get this to work properly
+   x = 0;
+   //noLoop();
+ 
+  }
+   strokeWeight(1);
+ drawPendent();
+ }
+}
+
+void keyPressed(){
+  move += 20;
+  
+  redraw();
+}
 
   </script>
   <canvas id="mycanvas4"></canvas>
