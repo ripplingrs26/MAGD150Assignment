@@ -450,12 +450,16 @@ PImage img2;
 float x = 0;
 float move = 100;
 
+//import processing.sound.*;
+//SoundFile file;
 
 void setup(){
  size(1200,800); 
  background(255);
  frameRate(1.5);
  img =loadImage("https://cloud.githubusercontent.com/assets/15235901/11835364/87f0b572-a398-11e5-8d8b-6acea05c3c63.jpg");
+// file = new SoundFile(this, "Sailor Moon Star Locket Song.mp3");
+  //file.play();    //I also had issues getting the sound file to work properly
  for (int x=0; x<10; x++){
  
  drawPendent();
@@ -525,10 +529,12 @@ void draw(){
 void mousePressed(){
    background(255);
  frameRate(1.5);
- img =loadImage("https://cloud.githubusercontent.com/assets/15235901/11835365/89370cb0-a398-11e5-9382-def336e30dbf.jpg");
+ img =loadImage("MoonCouple.jpg");
     fill(#00FFF0);
  textSize(20);
  text("Click mouse on screen to clear notes",100,100);
+ //file = new SoundFile(this, "Sailor Moon Star Locket Song.mp3");
+ //file.play();
  for (int x=0; x<10; x++){
  
  drawPendent();
